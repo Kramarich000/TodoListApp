@@ -1,4 +1,4 @@
-﻿static void AddTask()
+static void AddTask()
 {
     Console.Write("Введите описание задачи: ");
     string taskDescription = Console.ReadLine();

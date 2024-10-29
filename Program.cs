@@ -1,4 +1,3 @@
-
 static void ShowMenu()
 {
     while (true)
@@ -46,8 +45,8 @@ static void ViewTasks()
         }
 
 static void AddTask()
-{
 
+{
     ViewTasks(); // Показать текущие задачи перед удалением
     Console.Write("Введите номер задачи для удаления: ");
     if (int.TryParse(Console.ReadLine(), out int taskNumber) && taskNumber > 0 && taskNumber <= tasks.Count)
@@ -59,6 +58,10 @@ static void AddTask()
     {
         Console.WriteLine("Неверный номер задачи.");
     }
+
+}
+      
+static void RemoveTask()
 }
 
     Console.Write("Введите описание задачи: ");

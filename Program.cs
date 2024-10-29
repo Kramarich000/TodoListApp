@@ -5,3 +5,4 @@ static void AddTask()
     tasks.Add(taskDescription);
     Console.WriteLine("Задача добавлена.");
 }
+

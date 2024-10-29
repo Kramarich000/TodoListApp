@@ -1,6 +1,5 @@
-static void AddTask()
+static void RemoveTask()
 {
-
     ViewTasks(); // Показать текущие задачи перед удалением
     Console.Write("Введите номер задачи для удаления: ");
     if (int.TryParse(Console.ReadLine(), out int taskNumber) && taskNumber > 0 && taskNumber <= tasks.Count)
@@ -13,10 +12,3 @@ static void AddTask()
         Console.WriteLine("Неверный номер задачи.");
     }
 }
-
-    Console.Write("Введите описание задачи: ");
-    string taskDescription = Console.ReadLine();
-    tasks.Add(taskDescription);
-    Console.WriteLine("Задача добавлена.");
-}
-

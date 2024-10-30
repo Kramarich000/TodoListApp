@@ -1,3 +1,9 @@
+
+static void EditTask()
+        {
+            ViewTasks(); // Показать текущие задачи перед редактированием
+            Console.Write("Введите номер задачи для редактирования: ");
+
 using System;
 using System.Collections.Generic;
 
@@ -59,16 +65,21 @@ namespace TodoListApp
         {
             ViewTasks(); // Показать текущие задачи перед удалением
             Console.Write("Введите номер задачи для удаления: ");
+
             if (int.TryParse(Console.ReadLine(), out int taskNumber) && taskNumber > 0 && taskNumber <= tasks.Count)
             {
-                tasks.RemoveAt(taskNumber - 1);
-                Console.WriteLine("Задача удалена.");
+                Console.Write("Введите новое описание задачи: ");
+                string newDescription = Console.ReadLine();
+                tasks[taskNumber - 1] = newDescription;
+                Console.WriteLine("Задача обновлена.");
             }
             else
             {
                 Console.WriteLine("Неверный номер задачи.");
             }
         }
+
+}
         static void ViewTasks()
         {
             Console.WriteLine("Список задач:");

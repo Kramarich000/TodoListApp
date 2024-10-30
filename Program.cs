@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace TodoListApp
 {
     class Program
@@ -17,7 +20,8 @@ namespace TodoListApp
                 Console.WriteLine("1. Добавить задачу");
                 Console.WriteLine("2. Удалить задачу");
                 Console.WriteLine("3. Просмотреть задачи");
-                Console.WriteLine("4. Выйти");
+                Console.WriteLine("4. Редактировать задачу");
+                Console.WriteLine("5. Выйти");
                 var choice = Console.ReadLine();
 
                 switch (choice)
@@ -32,6 +36,9 @@ namespace TodoListApp
                         ViewTasks();
                         break;
                     case "4":
+                        EditTask();
+                        break;
+                    case "5":
                         return; // Выход из программы
                     default:
                         Console.WriteLine("Неверный выбор, попробуйте еще раз.");
@@ -56,6 +63,23 @@ namespace TodoListApp
             {
                 tasks.RemoveAt(taskNumber - 1);
                 Console.WriteLine("Задача удалена.");
+            }
+            else
+            {
+                Console.WriteLine("Неверный номер задачи.");
+            }
+        }
+
+        static void EditTask()
+        {
+            ViewTasks(); // Показать текущие задачи перед редактированием
+            Console.Write("Введите номер задачи для редактирования: ");
+            if (int.TryParse(Console.ReadLine(), out int taskNumber) && taskNumber > 0 && taskNumber <= tasks.Count)
+            {
+                Console.Write("Введите новое описание задачи: ");
+                string newDescription = Console.ReadLine();
+                tasks[taskNumber - 1] = newDescription;
+                Console.WriteLine("Задача обновлена.");
             }
             else
             {

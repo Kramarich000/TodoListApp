@@ -14,3 +14,4 @@ static void EditTask()
                 Console.WriteLine("Неверный номер задачи.");
             }
         }
+}
